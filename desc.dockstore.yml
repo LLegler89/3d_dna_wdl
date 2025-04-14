@@ -1,0 +1,6 @@
+version: 1.2
+workflows:
+  - subclass: WDL
+    name: 3d_dna
+    primaryDescriptorPath: /3d_dna.wdl
+  
