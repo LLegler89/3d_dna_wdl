@@ -52,7 +52,7 @@ task run3DDNA {
     Int         mem_gb  
     Int         threads 
   }
-  Int GB_of_space = ceil(size(merged_nodups.txt, "GB") * 2) + Extra_disk_space
+  Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
 
   command <<<
     set -eux
