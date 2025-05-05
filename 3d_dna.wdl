@@ -15,9 +15,9 @@ workflow run_3d_dna {
       draft_assembly_fasta = draft_assembly_fasta,
       merged_nodups = merged_nodups,
       output_prefix = output_prefix,
-      Int         Extra_disk_space    = Extra_disk_space,
-      Int         mem_gb  = mem_gb,
-      Int         threads = threads
+      Extra_disk_space    = Extra_disk_space,
+      mem_gb  = mem_gb,
+      threads = threads
   }
 
   output {
