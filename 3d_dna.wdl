@@ -42,7 +42,7 @@ task run3DDNA {
   }
   Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
 
-  command <<<'
+  command <<<
     set -eux
 
     # Install dependencies if needed
@@ -53,10 +53,10 @@ task run3DDNA {
 
     # Run the 3D-DNA pipeline with sealing fixes
     bash ./3d-dna/run-asm-pipeline.sh \
-      -j ${threads} \  # specify GNU Parallel threads
-      -r 50000 \        # initial scaffolding resolution
-      -s 100000 \       # minimum scaffold size for splitting (100kb)
-      -e \              # skip the sealing step to avoid infinite loops
+      -j ${threads} \  
+      -r 50000 \        
+      -s 100000 \       
+      -e \              
       ${draft_assembly_fasta} ${merged_nodups} 
 
   >>>
