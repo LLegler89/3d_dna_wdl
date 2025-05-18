@@ -53,9 +53,6 @@ task run3DDNA {
 
     # Run the 3D-DNA pipeline with sealing fixes
     bash ./3d-dna/run-asm-pipeline.sh \
-      -j ${threads} \  
-      -r 50000 \        
-      -s 100000 \       
       -e \              
       ${draft_assembly_fasta} ${merged_nodups} 
 
