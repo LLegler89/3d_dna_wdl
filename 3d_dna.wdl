@@ -52,7 +52,7 @@ task run3DDNA {
     git clone https://github.com/aidenlab/3d-dna.git
 
     # Run the 3D-DNA pipeline with sealing fixes
-    bash ./3d-dna/run-asm-pipeline.sh -e ${draft_assembly_fasta} ${merged_nodups} 
+    bash ./3d-dna/run-asm-pipeline.sh -e ~{draft_assembly_fasta} ~{merged_nodups} 
 
   >>>
 
