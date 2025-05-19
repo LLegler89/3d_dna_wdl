@@ -52,18 +52,32 @@ task run3DDNA {
     git clone https://github.com/aidenlab/3d-dna.git
 
     # Run the 3D-DNA pipeline with sealing fixes
-    bash ./3d-dna/run-asm-pipeline.sh -e ~{draft_assembly_fasta} ~{merged_nodups} 
+    bash ./3d-dna/run-asm-pipeline.sh -i 30000 \
+      --editor-coarse-resolution 25000 \
+      --editor-coarse-region 150000 \
+      --editor-coarse-stringency 50 \
+      --editor-saturation-centile 5 \
+      --editor-fine-resolution 1000 \
+      --polisher-input-size 1000000 \
+      --splitter-input-size 1000000 \
+      --merger-search-band 3000000 \
+      --merger-alignment-score 50000000 \
+      --merger-alignment-identity 20 \
+      --merger-alignment-length 20000 \
 
   >>>
 
   output {
-    File final_fasta = glob("*_FINAL.fasta")[0]
-    File final_hic = glob("*_final.hic")[0]
-    File final_assembly = glob("*_final.assembly")[0]
+    File final_fasta = glob("*_FINAL.fasta")
+    File final_hic = glob("*_final.hic")
+    File final_assembly = glob("*_final.assembly")
     Array[File] contact_maps = glob("*.hic")
     Array[File] assembly_steps = glob("*.assembly")
     Array[File] misjoin_wigs = glob("*.wig")
     Array[File] misjoin_beds = glob("*.bed")
+    File final_fasta     = "${genomeid}_FINAL.fasta"
+    File final_hic       = "${genomeid}.final.hic"
+    File final_assembly  = "${genomeid}.final.assembly"
   }
 
   runtime {
