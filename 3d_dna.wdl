@@ -8,7 +8,6 @@ workflow run_3d_dna {
     Int         Extra_disk_space    = 500
     Int         mem_gb  = 64
     Int         threads = 16
-    genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
   }
 
   call run3DDNA {
@@ -44,7 +43,7 @@ task run3DDNA {
     String      genomeid
   }
   Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
-
+  genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
   command <<<
     set -eux
 
