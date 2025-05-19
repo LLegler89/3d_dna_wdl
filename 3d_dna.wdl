@@ -50,7 +50,9 @@ task run3DDNA {
 
     # Clone the 3D-DNA pipeline
     git clone https://github.com/aidenlab/3d-dna.git
-
+    
+    genomeid=$(basename "~{draft_assembly_fasta}" ".fa")
+    
     # Run the 3D-DNA pipeline with sealing fixes
     bash ./3d-dna/run-asm-pipeline.sh -i 30000 \
       --editor-coarse-resolution 25000 \
