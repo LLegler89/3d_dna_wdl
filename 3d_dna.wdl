@@ -8,6 +8,7 @@ workflow run_3d_dna {
     Int         Extra_disk_space    = 500
     Int         mem_gb  = 64
     Int         threads = 16
+    genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
   }
 
   call run3DDNA {
@@ -18,7 +19,7 @@ workflow run_3d_dna {
       Extra_disk_space    = Extra_disk_space,
       mem_gb  = mem_gb,
       threads = threads
-      genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
+      genomeid = genomeid
   }
 
   output {
