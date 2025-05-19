@@ -68,9 +68,6 @@ task run3DDNA {
   >>>
 
   output {
-    File final_fasta = glob("*_FINAL.fasta")
-    File final_hic = glob("*_final.hic")
-    File final_assembly = glob("*_final.assembly")
     Array[File] contact_maps = glob("*.hic")
     Array[File] assembly_steps = glob("*.assembly")
     Array[File] misjoin_wigs = glob("*.wig")
