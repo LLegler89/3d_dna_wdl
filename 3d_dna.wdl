@@ -18,6 +18,7 @@ workflow run_3d_dna {
       Extra_disk_space    = Extra_disk_space,
       mem_gb  = mem_gb,
       threads = threads
+      genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
   }
 
   output {
@@ -39,6 +40,7 @@ task run3DDNA {
     Int         Extra_disk_space   
     Int         mem_gb  
     Int         threads 
+    String      genomeid
   }
   Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
 
@@ -74,9 +76,9 @@ task run3DDNA {
     Array[File] assembly_steps = glob("*.assembly")
     Array[File] misjoin_wigs = glob("*.wig")
     Array[File] misjoin_beds = glob("*.bed")
-    File final_fasta     = "${genomeid}_FINAL.fasta"
-    File final_hic       = "${genomeid}.final.hic"
-    File final_assembly  = "${genomeid}.final.assembly"
+    File final_fasta     = "~{genomeid}_FINAL.fasta"
+    File final_hic       = "~{genomeid}.final.hic"
+    File final_assembly  = "~{genomeid}.final.assembly"
   }
 
   runtime {
