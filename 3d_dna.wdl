@@ -44,7 +44,7 @@ task run3DDNA {
   }
   
   Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
-  genomeid = basename(draft_assembly_fasta, ".fa")
+  String genomeid = basename(draft_assembly_fasta, ".fa")
   
   command <<<
     set -eux
