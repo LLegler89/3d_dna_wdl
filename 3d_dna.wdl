@@ -17,7 +17,7 @@ workflow run_3d_dna {
       output_prefix = output_prefix,
       Extra_disk_space    = Extra_disk_space,
       mem_gb  = mem_gb,
-      threads = threads
+      threads = threads,
       genomeid = genomeid
   }
 
