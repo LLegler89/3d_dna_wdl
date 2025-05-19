@@ -47,7 +47,7 @@ task run3DDNA {
   # Derive genome ID from input FASTA filename
   String genomeid = basename(draft_assembly_fasta, ".fa")
   
-  command <<<<
+  command <<<
     set -eux
 
     # Install dependencies if needed
@@ -71,7 +71,7 @@ task run3DDNA {
       --merger-alignment-length 20000 \
       --assembly "~{draft_assembly_fasta}" \
       --output "${genomeid}_3d_dna_output"
-  >>>>
+  >>>
 
   output {
     Array[File] contact_maps   = glob("*.hic")
