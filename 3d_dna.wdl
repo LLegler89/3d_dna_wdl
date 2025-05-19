@@ -69,8 +69,7 @@ task run3DDNA {
       --merger-alignment-score 50000000 \
       --merger-alignment-identity 20 \
       --merger-alignment-length 20000 \
-      --assembly "~{draft_assembly_fasta}" \
-      --output "${genomeid}_3d_dna_output"
+      ~{draft_assembly_fasta} ~{merged_nodups}
   >>>
 
   output {
