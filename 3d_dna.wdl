@@ -43,7 +43,7 @@ task run3DDNA {
     String      genomeid
   }
   Int GB_of_space = ceil(size(merged_nodups, "GB") * 2) + Extra_disk_space
-  genomeid = $(basename "~{draft_assembly_fasta}" ".fa")
+  genomeid = basename(~{draft_assembly_fasta}, ".fa")
   command <<<
     set -eux
 
@@ -53,7 +53,6 @@ task run3DDNA {
     # Clone the 3D-DNA pipeline
     git clone https://github.com/aidenlab/3d-dna.git
     
-    genomeid=$(basename "~{draft_assembly_fasta}" ".fa")
     
     # Run the 3D-DNA pipeline with sealing fixes
     bash ./3d-dna/run-asm-pipeline.sh -i 30000 \
