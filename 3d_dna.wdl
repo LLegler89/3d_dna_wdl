@@ -65,10 +65,6 @@ task run3DDNA {
       --editor-fine-resolution 1000 \
       --polisher-input-size 1000000 \
       --splitter-input-size 1000000 \
-      --merger-search-band 3000000 \
-      --merger-alignment-score 50000000 \
-      --merger-alignment-identity 20 \
-      --merger-alignment-length 20000 \
       ~{draft_assembly_fasta} ~{merged_nodups}
   >>>
 
